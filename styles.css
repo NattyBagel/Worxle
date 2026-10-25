@@ -19,135 +19,354 @@ body {
     color: var(--colour-text);
 }
 
-img {
-    height: 6em;
-    margin: 1em;
+/*Desktop Resolution*/
+@media (min-width: 481px){
+    button.daySelect {
+        height: 3em;
+        width: 3em;
+        background: var(--colour-primary);
+        border: unset;
+        outline: var(--colour-text);
+        outline-width: 0.25em;
+        outline-style: solid;
+        border-radius: 0.7em;
+        margin-left: 1em;
+        margin-right: 1em;
+    }
+
+    button.daySelect:hover{
+        background-color: var(--colour-button-hover);
+        transition: 0.2s;
+    }
+
+    button.gameSelect {
+        background-color: var(--colour-primary);
+        height: 3em;
+        width: 14em;
+        border-radius: 1em;
+        border-color: var(--colour-text);
+        border-style: solid;
+        border-width: 0.2em;
+        text-align: center;
+        color: unset;
+        text-decoration: unset;
+        margin: 0.3em;
+        font-size: 1.2em;
+    }
+
+    button.gameSelect:hover {
+        background-color: var(--colour-button-hover);
+        transition: 0.2s;
+    }
+
+    div.center {
+        display: grid;
+        place-items: center;
+    }
+
+    name {
+        text-align: center;
+        font-size: 3em;
+        font-weight: bolder;
+    }
+
+    text {
+        text-align: center;
+        margin: 0.15em;
+        width: 80%;
+        font-size: 1.1em;
+    }
+
+    space {
+        height: 0.2em;
+    }
+
+    space.title {
+        height: 4em;
+    }
+
+    space.titleTop {
+        height: 4em;
+    }
+
+    space.buttons {
+        height: 0.2em;
+    }
+
+    space.rules {
+        height: 0.2em;
+    }
+
+    space.logo {
+        height: 0.8em;
+    }
+
+    space.prelogo {
+        height: 0.8em;
+    }
+
+    space.board {
+        height: 0.2em;
+    }
+
+    space.keyboard {
+        height: 0.2em;
+    }
+
+    wordlegrid.board {
+        display: table;
+    }
+
+    wordlegrid.row {
+        display: table-row;
+        font-size: 0px;
+    }
+
+    button.cell {
+        margin: 0.1em;
+        height: 1.9em;
+        width: 1.9em;
+        border-color: var(--colour-cells);
+        border-style: solid;
+        border-width: 0.1em;
+        display: inline-grid;
+        background-color: var(--colour-primary);
+        padding: unset;
+        font-weight: bolder;
+        appearance: none;
+        font-size: 18pt;
+        align-content: center;
+    }
+
+    button.largeCell {
+        font-size: 30pt;
+    }
+
+    button.key {
+        margin: 0.2em;
+        height: 2.3em;
+        width: 2.3em;
+        display: table-cell;
+        background-color: var(--colour-cells-wrong);
+        padding: unset;
+        font-weight: bolder;
+        font-size: 14pt;
+        outline: var(--colour-cells);
+        outline-width: 0.15em;
+        outline-style: solid;
+        border: none;
+    }
+
+    button.key:hover {
+        background-color: var(--colour-button-hover);
+        transition: 0.2s;
+    }
+
+
+    button.gradientOutline {
+        outline: var(--colour-cells-outline);
+        outline-width: 0.15em;
+        outline-style: solid;
+    }
+
+    lettergrid.row {
+        display: table-row;
+        font-size: 0px;
+    }
+
+    button.special {
+        width: 3.8em;
+    }
+
+    warning {
+        position: absolute;
+        align-self: baseline;
+        margin: 10px;
+        background-color: var(--colour-text);
+        color: var(--colour-primary);
+        height: 2em;
+        padding-left: 0.5em;
+        padding-right: 0.5em;
+        text-align: center;
+        display: inline;
+        align-content: center;
+        border-radius: 10px;
+        transition: 0.5s;
+    }
+}
+
+
+/* Mobile Resolution*/
+@media (max-width: 480px){
+
+    * {
+        touch-action: manipulation
+    }
+    
+    button.daySelect {
+        height: 10vw;
+        width: 10vw;
+        background: var(--colour-primary);
+        border: unset;
+        outline: var(--colour-text);
+        outline-width: 1vw;
+        outline-style: solid;
+        border-radius: 3vw;
+        margin-left: 1vw;
+        margin-right: 1vw;
+    }
+
+    button.daySelect:hover{
+        background-color: var(--colour-button-hover);
+        transition: 0.2s;
+    }
+
+    button.gameSelect {
+        background-color: var(--colour-primary);
+        height: 6vh;
+        width: 60vw;
+        border-radius: 4vw;
+        border-color: var(--colour-text);
+        border-style: solid;
+        border-width: 1vw;
+        text-align: center;
+        color: unset;
+        text-decoration: unset;
+        margin: 1vw;
+        font-size: 5vw;
+    }
+
+    button.gameSelect:hover {
+        background-color: var(--colour-button-hover);
+        transition: 0.2s;
+    }
+
+    div.center {
+        display: grid;
+        place-items: center;
+    }
+
+    name {
+        text-align: center;
+        font-size: 3em;
+        font-weight: bolder;
+    }
+
+    text {
+        text-align: center;
+        margin: 1vw;
+        width: 90%;
+        font-size: 4.4vw;
+    }
+
+    space {
+        height: 0vh;
+    }
+
+    space.title {
+        height: 5vh;
+    }
+
+    space.titleTop {
+        height: 15vh;
+    }
+
+    space.buttons {
+        height: 5vh;
+    }
+
+    space.rules {
+        height: 5vh;
+    }
+
+    space.board {
+        height: 4vh;
+    }
+
+    space.keyboard {
+        height: 6vh;
+    }
+
+    wordlegrid.board {
+        display: table;
+    }
+
+    wordlegrid.row {
+        display: table-row;
+        font-size: 0vw;
+    }
+
+    button.cell {
+        margin: 0.8vw;
+        height: 13vw;
+        width: 13vw;
+        border-color: var(--colour-cells);
+        border-style: solid;
+        border-width: 0.7vw;
+        display: inline-grid;
+        background-color: var(--colour-primary);
+        padding: unset;
+        font-weight: bolder;
+        appearance: none;
+        font-size: 7vw;
+        align-content: center;
+    }
+
+    button.largeCell {
+        font-size: 7vw;
+    }
+
+    button.key {
+        margin: 1.3vw;
+        height: 6vh;
+        width: 7vw;
+        display: table-cell;
+        background-color: var(--colour-cells-wrong);
+        padding: unset;
+        font-weight: bolder;
+        font-size: 5vw;
+        outline: var(--colour-cells);
+        outline-width: 0.8vw;
+        outline-style: solid;
+        border: none;
+    }
+
+    button.key:hover {
+        background-color: var(--colour-button-hover);
+        transition: 0.2s;
+    }
+
+    lettergrid.row {
+        display: table-row;
+        font-size: 0vw;
+    }
+
+    button.special {
+        width: 11vw;
+        height: 6vh;
+        font-size: 3.5vw;
+    }
+
+    warning {
+        position: absolute;
+        align-self: baseline;
+        margin: 4vw;
+        background-color: var(--colour-text);
+        color: var(--colour-primary);
+        height: 5vh;
+        padding-left: 3vw;
+        padding-right: 3vw;
+        text-align: center;
+        display: inline;
+        align-content: center;
+        border-radius: 3vw;
+        transition: 0.5s;
+    }
 }
 
 buttonRow {
     align-items: center;
     display: flex;
-}
-
-button.daySelect {
-    height: 3em;
-    width: 3em;
-    background: var(--colour-primary);
-    border: unset;
-    outline: var(--colour-text);
-    outline-width: 0.25em;
-    outline-style: solid;
-    border-radius: 0.7em;
-    margin-left: 1em;
-    margin-right: 1em;
-}
-
-button.daySelect:hover{
-    background-color: var(--colour-button-hover);
-    transition: 0.2s;
-}
-
-button.gameSelect {
-    background-color: var(--colour-primary);
-    height: 3em;
-    width: 14em;
-    border-radius: 1em;
-    border-color: var(--colour-text);
-    border-style: solid;
-    border-width: 0.2em;
-    text-align: center;
-    color: unset;
-    text-decoration: unset;
-    margin: 0.3em;
-    font-size: 1.2em;
-}
-
-button.gameSelect:hover {
-    background-color: var(--colour-button-hover);
-    transition: 0.2s;
-}
-
-div.center {
-    display: grid;
-    place-items: center;
-}
-
-name {
-    text-align: center;
-    font-size: 3em;
-    font-weight: bolder;
-}
-
-text {
-    text-align: center;
-    margin: 0.15em;
-    width: 80%;
-    font-size: 1.1em;
-}
-
-space {
-    height: 0.2em;
-}
-
-space.title {
-    height: 4em;
-}
-
-space.titleTop {
-    height: 4em;
-}
-
-space.buttons {
-    height: 0.2em;
-}
-
-space.rules {
-    height: 0.2em;
-}
-
-space.logo {
-    height: 0.8em;
-}
-
-space.prelogo {
-    height: 0.8em;
-}
-
-space.board {
-    height: 0.2em;
-}
-
-space.keyboard {
-    height: 0.2em;
-}
-
-wordlegrid.board {
-    display: table;
-}
-
-wordlegrid.row {
-    display: table-row;
-    font-size: 0px;
-}
-
-button.cell {
-    margin: 0.1em;
-    height: 1.9em;
-    width: 1.9em;
-    border-color: var(--colour-cells);
-    border-style: solid;
-    border-width: 0.1em;
-    display: inline-grid;
-    background-color: var(--colour-primary);
-    padding: unset;
-    font-weight: bolder;
-    appearance: none;
-    font-size: 18pt;
-    align-content: center;
-}
-
-button.largeCell {
-    font-size: 30pt;
 }
 
 button.cellWrong {
@@ -185,33 +404,6 @@ button.flip {
 lettergrid.board {
     display: contents;
 
-}
-
-button.key {
-    margin: 0.2em;
-    height: 2.3em;
-    width: 2.3em;
-    display: table-cell;
-    background-color: var(--colour-cells-wrong);
-    padding: unset;
-    font-weight: bolder;
-    font-size: 14pt;
-    outline: var(--colour-cells);
-    outline-width: 0.15em;
-    outline-style: solid;
-    border: none;
-}
-
-button.key:hover {
-    background-color: var(--colour-button-hover);
-    transition: 0.2s;
-}
-
-
-button.gradientOutline {
-    outline: var(--colour-cells-outline);
-    outline-width: 0.15em;
-    outline-style: solid;
 }
 
 button.g {
@@ -272,29 +464,4 @@ button.gwyp {
 
 button.wyp {
     background-image: linear-gradient(to bottom, var(--colour-cells-unknown), var(--colour-cells-misplaced),var(--colour-primary));
-}
-
-lettergrid.row {
-    display: table-row;
-    font-size: 0px;
-}
-
-button.special {
-    width: 3.8em;
-}
-
-warning {
-    position: absolute;
-    align-self: baseline;
-    margin: 10px;
-    background-color: var(--colour-text);
-    color: var(--colour-primary);
-    height: 2em;
-    padding-left: 0.5em;
-    padding-right: 0.5em;
-    text-align: center;
-    display: inline;
-    align-content: center;
-    border-radius: 10px;
-    transition: 0.5s;
 }
