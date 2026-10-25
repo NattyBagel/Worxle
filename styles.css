@@ -17,7 +17,7 @@ body {
 * {
     font-family: "Titillium Web";
     color: var(--colour-text);
-    touch-action: manipulation
+    touch-action: manipulation;
 }
 
 /*Desktop Resolution*/
@@ -241,6 +241,9 @@ body {
     div.center {
         display: grid;
         place-items: center;
+        align-content: center;
+        justify-content: center;
+        height: 100dvh;
     }
 
     name {
@@ -277,11 +280,11 @@ body {
     }
 
     space.board {
-        height: 1vh;
+        height: 0vh;
     }
 
     space.keyboard {
-        height: 1vh;
+        height: 0.5vh;
     }
 
     wordlegrid.board {
