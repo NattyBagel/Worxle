@@ -220,7 +220,7 @@ body {
 
     button.gameSelect {
         background-color: var(--colour-primary);
-        height: 6vh;
+        height: 6dvh;
         width: 60vw;
         border-radius: 4vw;
         border-color: var(--colour-text);
@@ -243,7 +243,7 @@ body {
         place-items: center;
         align-content: center;
         justify-content: center;
-        height: 100dvh;
+        height: 100ddvh;
     }
 
     name {
@@ -260,31 +260,31 @@ body {
     }
 
     space {
-        height: 0vh;
+        height: 0dvh;
     }
 
     space.title {
-        height: 5vh;
+        height: 5dvh;
     }
 
     space.titleTop {
-        height: 15vh;
+        height: 15dvh;
     }
 
     space.buttons {
-        height: 5vh;
+        height: 5dvh;
     }
 
     space.rules {
-        height: 5vh;
+        height: 5dvh;
     }
 
     space.board {
-        height: 0vh;
+        height: 0dvh;
     }
 
     space.keyboard {
-        height: 0.5vh;
+        height: 0.5dvh;
     }
 
     wordlegrid.board {
@@ -318,7 +318,7 @@ body {
 
     button.key {
         margin: 1.3vw;
-        height: 6vh;
+        height: 6dvh;
         width: 7vw;
         display: table-cell;
         background-color: var(--colour-cells-wrong);
@@ -343,7 +343,7 @@ body {
 
     button.special {
         width: 11vw;
-        height: 6vh;
+        height: 6dvh;
         font-size: 3.5vw;
     }
 
@@ -353,7 +353,7 @@ body {
         margin: 4vw;
         background-color: var(--colour-text);
         color: var(--colour-primary);
-        height: 5vh;
+        height: 5dvh;
         padding-left: 3vw;
         padding-right: 3vw;
         text-align: center;
