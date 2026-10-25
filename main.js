@@ -383,7 +383,7 @@ class Guess {
 
             let tempTrueLetters = trueLetters.slice() // Create a temp
             let sum = 0
-            for (let i = 0; i < letters.length-1 ; i++){
+            for (let i = 0; i < letters.length ; i++){
                 let currLetter = letters[i]
                 this.getSimpleColor(currLetter, i, tempTrueLetters)
                 if (tempTrueLetters[i] == letter){
