@@ -497,7 +497,7 @@ class Results {
         back.classList.add('gameSelect')
         back.innerHTML = "Back To Menu"
         back.onclick = function(){
-            window.location.href = "./index.HTML"
+            window.location.href = "./index.html"
         }
     }
 
