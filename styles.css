@@ -17,6 +17,7 @@ body {
 * {
     font-family: "Titillium Web";
     color: var(--colour-text);
+    touch-action: manipulation
 }
 
 /*Desktop Resolution*/
@@ -198,10 +199,6 @@ body {
 
 /* Mobile Resolution*/
 @media (max-width: 480px){
-
-    * {
-        touch-action: manipulation
-    }
     
     button.daySelect {
         height: 10vw;
