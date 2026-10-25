@@ -1,0 +1,300 @@
+:root {
+    --colour-primary: #18141b;
+    --colour-text: #F5EBFC;
+    --colour-button-hover: #DEBBF01C;
+    --colour-cells: #382e3f;
+    --colour-cells-wrong: #474249;
+    --colour-cells-misplaced: #c9b832;
+    --colour-cells-correct: #47ba3c;;
+    --colour-cells-unknown: #803c91;
+    --colour-cells-outline: #221d23;;
+}
+
+body {
+    background-color: var(--colour-primary);
+}
+
+* {
+    font-family: "Titillium Web";
+    color: var(--colour-text);
+}
+
+img {
+    height: 6em;
+    margin: 1em;
+}
+
+buttonRow {
+    align-items: center;
+    display: flex;
+}
+
+button.daySelect {
+    height: 3em;
+    width: 3em;
+    background: var(--colour-primary);
+    border: unset;
+    outline: var(--colour-text);
+    outline-width: 0.25em;
+    outline-style: solid;
+    border-radius: 0.7em;
+    margin-left: 1em;
+    margin-right: 1em;
+}
+
+button.daySelect:hover{
+    background-color: var(--colour-button-hover);
+    transition: 0.2s;
+}
+
+button.gameSelect {
+    background-color: var(--colour-primary);
+    height: 3em;
+    width: 14em;
+    border-radius: 1em;
+    border-color: var(--colour-text);
+    border-style: solid;
+    border-width: 0.2em;
+    text-align: center;
+    color: unset;
+    text-decoration: unset;
+    margin: 0.3em;
+    font-size: 1.2em;
+}
+
+button.gameSelect:hover {
+    background-color: var(--colour-button-hover);
+    transition: 0.2s;
+}
+
+div.center {
+    display: grid;
+    place-items: center;
+}
+
+name {
+    text-align: center;
+    font-size: 3em;
+    font-weight: bolder;
+}
+
+text {
+    text-align: center;
+    margin: 0.15em;
+    width: 80%;
+    font-size: 1.1em;
+}
+
+space {
+    height: 0.2em;
+}
+
+space.title {
+    height: 4em;
+}
+
+space.titleTop {
+    height: 4em;
+}
+
+space.buttons {
+    height: 0.2em;
+}
+
+space.rules {
+    height: 0.2em;
+}
+
+space.logo {
+    height: 0.8em;
+}
+
+space.prelogo {
+    height: 0.8em;
+}
+
+space.board {
+    height: 0.2em;
+}
+
+space.keyboard {
+    height: 0.2em;
+}
+
+wordlegrid.board {
+    display: table;
+}
+
+wordlegrid.row {
+    display: table-row;
+    font-size: 0px;
+}
+
+button.cell {
+    margin: 0.1em;
+    height: 1.9em;
+    width: 1.9em;
+    border-color: var(--colour-cells);
+    border-style: solid;
+    border-width: 0.1em;
+    display: inline-grid;
+    background-color: var(--colour-primary);
+    padding: unset;
+    font-weight: bolder;
+    appearance: none;
+    font-size: 18pt;
+    align-content: center;
+}
+
+button.largeCell {
+    font-size: 30pt;
+}
+
+button.cellWrong {
+    background-color:var(--colour-cells-wrong);
+}
+
+button.cellMisplaced {
+    background-color:var(--colour-cells-misplaced);
+}
+
+button.cellCorrect {
+    background-color:var(--colour-cells-correct);
+}
+
+button.cellUnknown {
+    background-color:var(--colour-cells-unknown);
+}
+
+button.flip {
+    animation: flip 0.7s cubic-bezier(.46,.03,.52,.96) alternate
+}
+
+@keyframes flip {
+    0%{
+        transform:scale(1,1)
+    }
+    50%{
+        transform:scale(1,0)
+    }
+    100%{
+        transform:scale(1,1)
+    }
+}
+
+lettergrid.board {
+    display: contents;
+
+}
+
+button.key {
+    margin: 0.2em;
+    height: 2.3em;
+    width: 2.3em;
+    display: table-cell;
+    background-color: var(--colour-cells-wrong);
+    padding: unset;
+    font-weight: bolder;
+    font-size: 14pt;
+    outline: var(--colour-cells);
+    outline-width: 0.15em;
+    outline-style: solid;
+    border: none;
+}
+
+button.key:hover {
+    background-color: var(--colour-button-hover);
+    transition: 0.2s;
+}
+
+
+button.gradientOutline {
+    outline: var(--colour-cells-outline);
+    outline-width: 0.15em;
+    outline-style: solid;
+}
+
+button.g {
+    background-image: linear-gradient(to bottom, var(--colour-cells-correct));
+}
+
+button.w {
+    background-image: linear-gradient(to bottom, var(--colour-primary));
+}
+
+button.y {
+    background-image: linear-gradient(to bottom, var(--colour-cells-misplaced));
+}
+
+button.gw {
+    background-image: linear-gradient(to bottom, var(--colour-cells-correct),var(--colour-primary));
+}
+
+button.gy {
+    background-image: linear-gradient(to bottom, var(--colour-cells-correct),var(--colour-cells-misplaced));
+}
+
+button.gwy {
+    background-image: linear-gradient(to bottom, var(--colour-cells-correct),var(--colour-cells-misplaced),var(--colour-primary));
+}
+
+button.wy {
+    background-image: linear-gradient(to bottom,var(--colour-cells-misplaced),var(--colour-primary));
+}
+
+button.p {
+    background-image: linear-gradient(to bottom, var(--colour-cells-unknown));
+}
+
+button.gp {
+    background-image: linear-gradient(to bottom, var(--colour-cells-unknown), var(--colour-cells-correct));
+}
+
+button.wp {
+    background-image: linear-gradient(to bottom, var(--colour-cells-unknown), var(--colour-primary));
+}
+
+button.yp {
+    background-image: linear-gradient(to bottom, var(--colour-cells-unknown), var(--colour-cells-misplaced));
+}
+
+button.gwp {
+    background-image: linear-gradient(to bottom, var(--colour-cells-unknown), var(--colour-cells-correct),var(--colour-primary));
+}
+
+button.gyp {
+    background-image: linear-gradient(to bottom, var(--colour-cells-unknown), var(--colour-cells-correct),var(--colour-cells-misplaced));
+}
+
+button.gwyp {
+    background-image: linear-gradient(to bottom, var(--colour-cells-unknown), var(--colour-cells-correct),var(--colour-cells-misplaced),var(--colour-primary));
+}
+
+button.wyp {
+    background-image: linear-gradient(to bottom, var(--colour-cells-unknown), var(--colour-cells-misplaced),var(--colour-primary));
+}
+
+lettergrid.row {
+    display: table-row;
+    font-size: 0px;
+}
+
+button.special {
+    width: 3.8em;
+}
+
+warning {
+    position: absolute;
+    align-self: baseline;
+    margin: 10px;
+    background-color: var(--colour-text);
+    color: var(--colour-primary);
+    height: 2em;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    text-align: center;
+    display: inline;
+    align-content: center;
+    border-radius: 10px;
+    transition: 0.5s;
+}
