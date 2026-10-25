@@ -218,10 +218,8 @@ class Keyboard {
         })
         if (hasGuessed){
             this.wordError("You've already guessed this...")
-            //return
-        }
-
-        
+            return
+        }       
         if (!wordleLangList.includes(word)){
             this.wordError("Word does not exist...")
             return
