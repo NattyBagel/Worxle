@@ -277,11 +277,11 @@ body {
     }
 
     space.board {
-        height: 4vh;
+        height: 1vh;
     }
 
     space.keyboard {
-        height: 6vh;
+        height: 1vh;
     }
 
     wordlegrid.board {
