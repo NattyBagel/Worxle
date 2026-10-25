@@ -5,9 +5,11 @@
     --colour-cells: #382e3f;
     --colour-cells-wrong: #474249;
     --colour-cells-misplaced: #c9b832;
-    --colour-cells-correct: #47ba3c;;
+    --colour-cells-correct: #47ba3c;
+    ;
     --colour-cells-unknown: #803c91;
-    --colour-cells-outline: #221d23;;
+    --colour-cells-outline: #221d23;
+    ;
 }
 
 body {
@@ -21,7 +23,7 @@ body {
 }
 
 /*Desktop Resolution*/
-@media (min-width: 481px){
+@media (min-width: 481px) {
     button.daySelect {
         height: 3em;
         width: 3em;
@@ -35,7 +37,7 @@ body {
         margin-right: 1em;
     }
 
-    button.daySelect:hover{
+    button.daySelect:hover {
         background-color: var(--colour-button-hover);
         transition: 0.2s;
     }
@@ -198,8 +200,8 @@ body {
 
 
 /* Mobile Resolution*/
-@media (max-width: 480px){
-    
+@media (max-width: 480px) {
+
     button.daySelect {
         height: 10vw;
         width: 10vw;
@@ -213,7 +215,7 @@ body {
         margin-right: 1vw;
     }
 
-    button.daySelect:hover{
+    button.daySelect:hover {
         background-color: var(--colour-button-hover);
         transition: 0.2s;
     }
@@ -370,34 +372,36 @@ buttonRow {
 }
 
 button.cellWrong {
-    background-color:var(--colour-cells-wrong);
+    background-color: var(--colour-cells-wrong);
 }
 
 button.cellMisplaced {
-    background-color:var(--colour-cells-misplaced);
+    background-color: var(--colour-cells-misplaced);
 }
 
 button.cellCorrect {
-    background-color:var(--colour-cells-correct);
+    background-color: var(--colour-cells-correct);
 }
 
 button.cellUnknown {
-    background-color:var(--colour-cells-unknown);
+    background-color: var(--colour-cells-unknown);
 }
 
 button.flip {
-    animation: flip 0.7s cubic-bezier(.46,.03,.52,.96) alternate
+    animation: flip 0.7s cubic-bezier(.46, .03, .52, .96) alternate
 }
 
 @keyframes flip {
-    0%{
-        transform:scale(1,1)
+    0% {
+        transform: scale(1, 1)
     }
-    50%{
-        transform:scale(1,0)
+
+    50% {
+        transform: scale(1, 0)
     }
-    100%{
-        transform:scale(1,1)
+
+    100% {
+        transform: scale(1, 1)
     }
 }
 
@@ -407,61 +411,61 @@ lettergrid.board {
 }
 
 button.g {
-    background-image: linear-gradient(to bottom, var(--colour-cells-correct));
+    background-image: linear-gradient(180deg, var(--colour-cells-correct) 100%);
 }
 
 button.w {
-    background-image: linear-gradient(to bottom, var(--colour-primary));
+    background-image: linear-gradient(180deg, var(--colour-primary) 100%);
 }
 
 button.y {
-    background-image: linear-gradient(to bottom, var(--colour-cells-misplaced));
+    background-image: linear-gradient(180deg, var(--colour-cells-misplaced) 100%);
 }
 
 button.gw {
-    background-image: linear-gradient(to bottom, var(--colour-cells-correct),var(--colour-primary));
+    background-image: linear-gradient(180deg, var(--colour-cells-correct) 50%, var(--colour-primary) 100%);
 }
 
 button.gy {
-    background-image: linear-gradient(to bottom, var(--colour-cells-correct),var(--colour-cells-misplaced));
+    background-image: linear-gradient(180deg, var(--colour-cells-correct) 50%, var(--colour-cells-misplaced) 100%);
 }
 
 button.gwy {
-    background-image: linear-gradient(to bottom, var(--colour-cells-correct),var(--colour-cells-misplaced),var(--colour-primary));
+    background-image: linear-gradient(180deg, var(--colour-cells-correct) 33%, var(--colour-cells-misplaced) 66%, var(--colour-primary) 100%);
 }
 
 button.wy {
-    background-image: linear-gradient(to bottom,var(--colour-cells-misplaced),var(--colour-primary));
+    background-image: linear-gradient(180deg, var(--colour-cells-misplaced) 50%, var(--colour-primary) 100%);
 }
 
 button.p {
-    background-image: linear-gradient(to bottom, var(--colour-cells-unknown));
+    background-image: linear-gradient(180deg, var(--colour-cells-unknown) 100%);
 }
 
 button.gp {
-    background-image: linear-gradient(to bottom, var(--colour-cells-unknown), var(--colour-cells-correct));
+    background-image: linear-gradient(180deg, var(--colour-cells-unknown) 50%, var(--colour-cells-correct) 100%);
 }
 
 button.wp {
-    background-image: linear-gradient(to bottom, var(--colour-cells-unknown), var(--colour-primary));
+    background-image: linear-gradient(180deg, var(--colour-cells-unknown) 50%, var(--colour-primary) 100%);
 }
 
 button.yp {
-    background-image: linear-gradient(to bottom, var(--colour-cells-unknown), var(--colour-cells-misplaced));
+    background-image: linear-gradient(180deg, var(--colour-cells-unknown) 50%, var(--colour-cells-misplaced) 100%);
 }
 
 button.gwp {
-    background-image: linear-gradient(to bottom, var(--colour-cells-unknown), var(--colour-cells-correct),var(--colour-primary));
+    background-image: linear-gradient(180deg, var(--colour-cells-unknown) 33%, var(--colour-cells-correct) 66%, var(--colour-primary) 100%);
 }
 
 button.gyp {
-    background-image: linear-gradient(to bottom, var(--colour-cells-unknown), var(--colour-cells-correct),var(--colour-cells-misplaced));
+    background-image: linear-gradient(180deg, var(--colour-cells-unknown) 33%, var(--colour-cells-correct) 66%, var(--colour-cells-misplaced) 100%);
 }
 
 button.gwyp {
-    background-image: linear-gradient(to bottom, var(--colour-cells-unknown), var(--colour-cells-correct),var(--colour-cells-misplaced),var(--colour-primary));
+    background-image: linear-gradient(180deg, var(--colour-cells-unknown) 25%, var(--colour-cells-correct) 50%, var(--colour-cells-misplaced) 75%, var(--colour-primary) 100%);
 }
 
 button.wyp {
-    background-image: linear-gradient(to bottom, var(--colour-cells-unknown), var(--colour-cells-misplaced),var(--colour-primary));
+    background-image: linear-gradient(180deg, var(--colour-cells-unknown) 33%, var(--colour-cells-misplaced)66%, var(--colour-primary) 100%);
 }
