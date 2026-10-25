@@ -500,7 +500,12 @@ class Results {
     }
 
     static shareResults(){
-        let shareString = `WorXle #${RNG.getOffset()-20749}`
+        let shareString = 0
+        if (!isInfinite){
+            shareString = `WorXle #${RNG.getOffset()-20749}`
+        }else{
+            shareString = `WorXLe #INFINITE`
+        }
         if(Guess.win == 1){
             shareString = `${shareString} ${Guess.guesses.length}/8\r\n`
         }else{
