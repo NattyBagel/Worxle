@@ -318,7 +318,7 @@ body {
 
     button.key {
         margin: 1.3vw;
-        height: 6vh;
+        height: 5vh;
         width: 7vw;
         display: table-cell;
         background-color: var(--colour-cells-wrong);
@@ -343,7 +343,7 @@ body {
 
     button.special {
         width: 11vw;
-        height: 6vh;
+        height: 5vh;
         font-size: 3.5vw;
     }
 
