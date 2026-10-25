@@ -321,7 +321,7 @@ body {
     button.key {
         margin: 1.3vw;
         height: 5vh;
-        width: 7vw;
+        width: 6vw;
         display: table-cell;
         background-color: var(--colour-cells-wrong);
         padding: unset;
