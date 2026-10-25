@@ -338,6 +338,12 @@ body {
         transition: 0.2s;
     }
 
+    button.gradientOutline {
+        outline: var(--colour-cells);
+        outline-width: 0.8vw;
+        outline-style: solid;
+    }
+
     lettergrid.row {
         display: table-row;
         font-size: 0vw;
@@ -407,80 +413,64 @@ button.flip {
 
 lettergrid.board {
     display: contents;
-
 }
 
 button.g {
     background-image: linear-gradient(180deg, var(--colour-cells-correct) 100%);
-    background-color: none;
 }
 
 button.w {
     background-image: linear-gradient(180deg, var(--colour-primary) 100%);
-    background-color: none;
 }
 
 button.y {
     background-image: linear-gradient(180deg, var(--colour-cells-misplaced) 100%);
-    background-color: none;
 }
 
 button.gw {
     background-image: linear-gradient(180deg, var(--colour-cells-correct) 50%, var(--colour-primary) 100%);
-    background-color: none;
 }
 
 button.gy {
     background-image: linear-gradient(180deg, var(--colour-cells-correct) 50%, var(--colour-cells-misplaced) 100%);
-    background-color: none;
 }
 
 button.gwy {
     background-image: linear-gradient(180deg, var(--colour-cells-correct) 33%, var(--colour-cells-misplaced) 66%, var(--colour-primary) 100%);
-    background-color: none;
 }
 
 button.wy {
     background-image: linear-gradient(180deg, var(--colour-cells-misplaced) 50%, var(--colour-primary) 100%);
-    background-color: none;
 }
 
 button.p {
     background-image: linear-gradient(180deg, var(--colour-cells-unknown) 100%);
-    background-color: none;
 }
 
 button.gp {
     background-image: linear-gradient(180deg, var(--colour-cells-unknown) 50%, var(--colour-cells-correct) 100%);
-    background-color: none;
 }
 
 button.wp {
     background-image: linear-gradient(180deg, var(--colour-cells-unknown) 50%, var(--colour-primary) 100%);
-    background-color: none;
 }
 
 button.yp {
     background-image: linear-gradient(180deg, var(--colour-cells-unknown) 50%, var(--colour-cells-misplaced) 100%);
-    background-color: none;
 }
 
 button.gwp {
     background-image: linear-gradient(180deg, var(--colour-cells-unknown) 33%, var(--colour-cells-correct) 66%, var(--colour-primary) 100%);
-    background-color: none;
 }
 
 button.gyp {
     background-image: linear-gradient(180deg, var(--colour-cells-unknown) 33%, var(--colour-cells-correct) 66%, var(--colour-cells-misplaced) 100%);
-    background-color: none;
 }
 
 button.gwyp {
     background-image: linear-gradient(180deg, var(--colour-cells-unknown) 25%, var(--colour-cells-correct) 50%, var(--colour-cells-misplaced) 75%, var(--colour-primary) 100%);
-    background-color: none;
 }
 
 button.wyp {
     background-image: linear-gradient(180deg, var(--colour-cells-unknown) 33%, var(--colour-cells-misplaced)66%, var(--colour-primary) 100%);
-    background-color: none;
 }
