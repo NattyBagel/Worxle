@@ -579,11 +579,13 @@ function cellClick(x,y){
 }
 
 function addTitle(){
+    /*
     let title = document.createElement('text')
     document.getElementById('titleArea').appendChild(title)
     if (isInfinite){
         title.innerHTML = "Random Worxle"
     }
+    */
 }
 
 function main(){
