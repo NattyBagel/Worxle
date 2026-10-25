@@ -21,13 +21,13 @@ back.onclick = function(){
 worxle.onclick = function(){
     sessionStorage.setItem("isInfinite","false");
     sessionStorage.setItem("date",""+num);
-    window.location.href = "./worxle.html"
+    window.location.href = "https://nattybagel.github.io/worxle/worxle.html"
 }
 
 infinite.onclick = function(){
     sessionStorage.setItem("isInfinite","true");
     sessionStorage.setItem("date","-1");
-    window.location.href = "./worxle.html"
+    window.location.href = "https://nattybagel.github.io/worxle/worxle.html"
 }
 
 function setDate(newNum){
