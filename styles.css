@@ -416,15 +416,15 @@ lettergrid.board {
 }
 
 button.g {
-    background-image: linear-gradient(180deg, var(--colour-cells-correct) 100%);
+    background-color: var(--colour-cells-correct);
 }
 
 button.w {
-    background-image: linear-gradient(180deg, var(--colour-primary) 100%);
+    background-color: var(--colour-primary);
 }
 
 button.y {
-    background-image: linear-gradient(180deg, var(--colour-cells-misplaced) 100%);
+    background-color: var(--colour-cells-misplaced);
 }
 
 button.gw {
@@ -444,7 +444,7 @@ button.wy {
 }
 
 button.p {
-    background-image: linear-gradient(180deg, var(--colour-cells-unknown) 100%);
+    background-color: var(--colour-cells-unknown);
 }
 
 button.gp {
