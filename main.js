@@ -709,7 +709,7 @@ class Cookies {
         if (cookie == null){
             return null
         }
-        return parseInt(cookie)
+        return Number(cookie)
     }
 }
 
@@ -724,8 +724,9 @@ function loadCookies(){
         console.log("LOADED FROM INFINITE COOKIES")
         wordleNum = Cookies.getInt("INFwordleNum")
         isInfinite = Cookies.getBool("INFisInfinite")
+        
     }
-    if (wordleNum == null && sessionStorage.getItem('wordleNum')!= null){
+    if (wordleNum == null && sessionStorage.getItem('date')!= null){
         console.log("LOADED FROM SITE")
         isInfinite = sessionStorage.getItem("isInfinite") == "true";
         let infstr = ""
@@ -740,10 +741,6 @@ function loadCookies(){
         console.log("LOADED DEFAULT")
         wordleNum = 0
         Cookies.setCookie("wordleNum",0)
-    }
-    if (isInfinite == null){
-        isInfinite = false
-        Cookies.setCookie("isInfinite",false)
     }
     Guess.loadCookies()
     console.log(`Wordle Number : ${wordleNum}`)
