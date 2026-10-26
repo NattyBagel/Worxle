@@ -1,14 +1,8 @@
 const size = [6,8];
-let wordleNum = sessionStorage.getItem("date");
-let isInfinite = sessionStorage.getItem("isInfinite") == "true";
 
-console.log(`Wordle Number : ${wordleNum}`)
-console.log(`Is Infinite   : ${isInfinite}`)
-
-/**
- * Name idea
- * - Wrongle
- */
+let wordleNum
+let isInfinite
+let introAnim = false
 
 class Board {
 
@@ -62,24 +56,35 @@ class Board {
         this.updateAnyCell(i,this.currGuess,letters[i],htmlClass,playAnim)
     }
 
-    updateAnyCell(i,row,letter,htmlClass,playAnim=false){
+    updateAnyCell(i,row,letter,color,playAnim=false){
         let cell = this.board[row][i]
-        cell.innerHTML = letter.toUpperCase()
+        let rowDelay = 0
+        if (introAnim){
+            rowDelay = this.currGuess
+        }else{
+            cell.innerHTML = letter.toUpperCase()
+        }
         if(playAnim){
             setTimeout(function(){
-                cell.classList.add('flip')
                 setTimeout(function(){
-                    if (htmlClass != null){
-                        cell.classList.add(htmlClass)
-                    }    
+                    cell.classList.add('flip')
                     setTimeout(function(){
-                        cell.classList.remove('flip')
+                        if (color != null){
+                            cell.classList.add(color)
+                        }    
+                        if (introAnim) {
+                            cell.innerHTML = letter.toUpperCase()
+                        }
+                        setTimeout(function(){
+                            cell.classList.remove('flip')
+                        },0.35 * 1000)
                     },0.35 * 1000)
-                },0.35 * 1000)
-            },0.35 * 1000 * i)
+                },0.35 * 1000 * i)
+            },0.35 * 1000 * rowDelay)
         }else{
-            if (htmlClass != null){
-                cell.classList.add(htmlClass)
+            if (color != null){
+                cell.innerHTML = letter.toUpperCase()
+                cell.classList.add(color)
             }
         }
     }
@@ -224,7 +229,7 @@ class Keyboard {
             this.wordError("Word does not exist...")
             return
         }
-        new Guess(word)
+        new Guess(word, null)
         Board.getBoard().updateGuess(this.guessLetters)
         Board.getBoard().guessed()
         this.guessLetters = []
@@ -244,6 +249,10 @@ class Keyboard {
             setTimeout(function(){
                 center.removeChild(warning)
             },3 * 1000)
+        }else{
+            setTimeout(function(){
+                center.removeChild(warning)
+            },12 * 1000)
         }
     }
 
@@ -324,10 +333,14 @@ class Guess {
         "A+ Effort",
     ]
 
-    constructor (word){
+    constructor (word,wrongLetterNum){
         Guess.guesses.push(this)
         this.word = word
-        this.wrongLetterNum = Guess.getWrongLetterNum()
+        if (wrongLetterNum == null){
+            this.wrongLetterNum = Guess.getWrongLetterNum()
+        }else{
+            this.wrongLetterNum = wrongLetterNum
+        }
         this.win = false
         this.colors = [] // Default Colors 
         if (Guess.getTrueWord() == word){
@@ -355,6 +368,44 @@ class Guess {
             Board.getBoard().showUnknowns()
             Keyboard.getKeyboard().kill()
             new Results
+            Guess.clearCookies()
+        }else{
+            Guess.saveToCookies()
+        }
+    }
+
+    static saveToCookies(){
+        for (let i = 0; i < Guess.guesses.length ; i++){
+            Cookies.setCookie(`guess[${i}]:word`,Guess.guesses[i].word)
+            Cookies.setCookie(`guess[${i}]:wrongLetterNum`,Guess.guesses[i].wrongLetterNum)
+        }
+    }
+
+    static loadCookies(){
+        introAnim = true
+        let board = Board.getBoard()
+        let k = 0
+        for (let i = 0; i < size[1] ; i++){
+            let word = Cookies.getCookie(`guess[${i}]:word`)
+            let wrongLetterNum = Cookies.getInt(`guess[${i}]:wrongLetterNum`)
+            if (word == null || wrongLetterNum == null){ // Guess doesn't exist, leave loop
+                break
+            }
+            new Guess(word,wrongLetterNum)
+            board.updateGuess(word.split(""))
+            board.guessed()
+            k++
+        }
+        setTimeout(function(){
+            introAnim = false
+        },0.35 * 1000 * k * 2)
+        
+    }
+
+    static clearCookies(){
+        for (let i = 0; i < Guess.guesses.length ; i++){
+            Cookies.clearCookie(`guess[${i}]:word`)
+            Cookies.clearCookie(`guess[${i}]:wrongLetterNum`)
         }
     }
 
@@ -537,7 +588,6 @@ class Results {
     }
 }
 
-
 class RNG {
     //https://www.xjavascript.com/blog/seeding-the-random-number-generator-in-javascript/#linear-congruential-generators-lcg
     // I have no clue how to take a good pseudorandom number, so heres just a basic one.
@@ -567,9 +617,9 @@ class RNG {
 
     static getOffset(){
         const date = Date.now()
-        const dateOffset = new Date(1970,1,1)
+        const dateOffset = new Date(0)
         let timedif = date - dateOffset
-        return parseInt(Math.ceil(timedif / (1000 * 3600 * 24)))+30 // Why the +30? I don't know!
+        return parseInt(Math.ceil(timedif / (1000 * 3600 * 24)))
     }
 }
 
@@ -597,8 +647,91 @@ function main(){
     addTitle()
     new Board()
     new Keyboard()
+    loadCookies()
 }
 
+
+class Cookies {
+    static setCookie(cname, cvalue) {
+        const d = new Date();
+        d.setDate(d.getDate() + 1);
+        d.setMinutes(0)
+        d.setHours(0)
+        d.setSeconds(0)
+        d.setMilliseconds(0)
+        let expires = "expires="+ d.toUTCString();
+        document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+    }
+
+    static getCookie(cname) {
+        let name = cname + "=";
+        let decodedCookie = decodeURIComponent(document.cookie);
+        let ca = decodedCookie.split(';');
+        for(let i = 0; i <ca.length; i++) {
+          let c = ca[i];
+          while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+          }
+          if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+          }
+        }
+        return null;
+    }
+
+    static clearCookie(cname){
+        const d = new Date(0);
+        let expires = "expires="+ d.toUTCString();
+        document.cookie = cname + "=" + "0" + ";" + expires + ";path=/";
+    }
+
+    static getBool(name){
+        let cookie = Cookies.getCookie(name)
+        if (cookie == null){
+            return null
+        }
+        return cookie == "true"
+    }
+
+    static getInt(name){
+        let cookie = Cookies.getCookie(name)
+        if (cookie == null){
+            return null
+        }
+        return parseInt(cookie)
+    }
+}
+
+function loadCookies(){
+    if (sessionStorage.getItem("date") != null){
+        console.log("LOADED FROM SITE")
+        wordleNum = sessionStorage.getItem("date");
+        Cookies.setCookie("wordleNum",sessionStorage.getItem("date"))
+        isInfinite = sessionStorage.getItem("isInfinite") == "true";
+        Cookies.setCookie("isInfinite",sessionStorage.getItem("isInfinite") == "true")
+    }else{
+        wordleNum = Cookies.getInt("wordleNum")
+        isInfinite = Cookies.getBool("isInfinite")
+        Guess.loadCookies()
+        if (wordleNum == null){
+            console.log("LOADED DEFAULT")
+            wordleNum = 0
+            Cookies.setCookie("wordleNum",0)
+        }else{
+            console.log("LOADED FROM COOKIES")
+        }
+        if (isInfinite == null){
+            isInfinite = false
+            Cookies.setCookie("isInfinite",false)
+        }
+    }
+}
+
+
+
+
+console.log(`Wordle Number : ${wordleNum}`)
+console.log(`Is Infinite   : ${isInfinite}`)
 
 document.addEventListener('DOMContentLoaded', () => {
     main()

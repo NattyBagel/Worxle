@@ -1,6 +1,3 @@
-//◀▶︎
-
-
 let num = 0
 
 let next = document.getElementById("next")

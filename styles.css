@@ -6,10 +6,8 @@
     --colour-cells-wrong: #474249;
     --colour-cells-misplaced: #c9b832;
     --colour-cells-correct: #47ba3c;
-    ;
     --colour-cells-unknown: #803c91;
     --colour-cells-outline: #221d23;
-    ;
 }
 
 body {
