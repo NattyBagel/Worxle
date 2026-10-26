@@ -72,9 +72,7 @@ class Board {
                         if (color != null){
                             cell.classList.add(color)
                         }    
-                        if (introAnim) {
-                            cell.innerHTML = letter.toUpperCase()
-                        }
+                        cell.innerHTML = letter.toUpperCase()
                         setTimeout(function(){
                             cell.classList.remove('flip')
                         },0.35 * 1000)
