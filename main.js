@@ -364,13 +364,14 @@ class Guess {
             Keyboard.getKeyboard().letters[letter].addState(color)
             i++
         })
+        Guess.saveToCookies()
         if (Guess.win != 0){
             Board.getBoard().showUnknowns()
             Keyboard.getKeyboard().kill()
             new Results
-            Guess.clearCookies()
-        }else{
-            Guess.saveToCookies()
+            if (isInfinite){
+                Guess.clearCookies()
+            }
         }
     }
 
@@ -703,13 +704,7 @@ class Cookies {
 }
 
 function loadCookies(){
-    if (sessionStorage.getItem("date") != null){
-        console.log("LOADED FROM SITE")
-        wordleNum = sessionStorage.getItem("date");
-        Cookies.setCookie("wordleNum",sessionStorage.getItem("date"))
-        isInfinite = sessionStorage.getItem("isInfinite") == "true";
-        Cookies.setCookie("isInfinite",sessionStorage.getItem("isInfinite") == "true")
-    }else{
+    if (sessionStorage.getItem("date") == null){
         wordleNum = Cookies.getInt("wordleNum")
         isInfinite = Cookies.getBool("isInfinite")
         Guess.loadCookies()
@@ -724,6 +719,12 @@ function loadCookies(){
             isInfinite = false
             Cookies.setCookie("isInfinite",false)
         }
+    }else{
+        console.log("LOADED FROM SITE")
+        wordleNum = sessionStorage.getItem("date");
+        Cookies.setCookie("wordleNum",sessionStorage.getItem("date"))
+        isInfinite = sessionStorage.getItem("isInfinite") == "true";
+        Cookies.setCookie("isInfinite",sessionStorage.getItem("isInfinite") == "true")
     }
 }
 
