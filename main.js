@@ -726,13 +726,12 @@ function loadCookies(){
         isInfinite = sessionStorage.getItem("isInfinite") == "true";
         Cookies.setCookie("isInfinite",sessionStorage.getItem("isInfinite") == "true")
     }
+    console.log(`Wordle Number : ${wordleNum}`)
+    console.log(`Is Infinite   : ${isInfinite}`)
 }
 
 
 
-
-console.log(`Wordle Number : ${wordleNum}`)
-console.log(`Is Infinite   : ${isInfinite}`)
 
 document.addEventListener('DOMContentLoaded', () => {
     main()
