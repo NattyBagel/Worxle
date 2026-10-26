@@ -715,10 +715,11 @@ class Cookies {
 
 function loadCookies(){
     isInfinite = sessionStorage.getItem("isInfinite") == "true";
+    let offset = RNG.getOffset()
     if (!isInfinite){
         console.log("LOADED FROM DAILY COOKIES")
-        wordleNum = Cookies.getInt("wordleNum")
-        isInfinite = Cookies.getBool("isInfinite")
+        wordleNum = Cookies.getInt(`[${offset}]wordleNum`)
+        isInfinite = Cookies.getBool(`[${offset}]isInfinite`)
     }
     if(wordleNum == null && isInfinite){
         console.log("LOADED FROM INFINITE COOKIES")
@@ -732,6 +733,8 @@ function loadCookies(){
         let infstr = ""
         if (isInfinite){
             infstr = "INF"
+        }else{
+            infstr = ""+offset
         }
         Cookies.setCookie(`${infstr}isInfinite`,isInfinite)
         wordleNum = sessionStorage.getItem("date");
