@@ -715,7 +715,7 @@ class Cookies {
 
 function loadCookies(){
     isInfinite = sessionStorage.getItem("isInfinite") == "true";
-    if (!isInfinite)
+    if (!isInfinite){
         console.log("LOADED FROM DAILY COOKIES")
         wordleNum = Cookies.getInt("wordleNum")
         isInfinite = Cookies.getBool("isInfinite")
