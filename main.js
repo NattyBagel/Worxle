@@ -728,7 +728,7 @@ function loadCookies(){
     console.log(`Is Infinite   : ${isInfinite}`)
 }
 
-
+// Trans Rights!
 
 
 document.addEventListener('DOMContentLoaded', () => {
