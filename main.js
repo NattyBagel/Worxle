@@ -1,7 +1,7 @@
 const size = [6,8];
 
-let wordleNum
-let isInfinite
+let wordleNum = null
+let isInfinite = null
 let introAnim = false
 
 class Board {
@@ -374,9 +374,13 @@ class Guess {
     }
 
     static saveToCookies(){
+        let infStr = ""
+        if (isInfinite){
+            infStr = "INF"
+        }
         for (let i = 0; i < Guess.guesses.length ; i++){
-            Cookies.setCookie(`guess[${i}]:word`,Guess.guesses[i].word)
-            Cookies.setCookie(`guess[${i}]:wrongLetterNum`,Guess.guesses[i].wrongLetterNum)
+            Cookies.setCookie(`guess[${i}${infStr}]:word`,Guess.guesses[i].word)
+            Cookies.setCookie(`guess[${i}${infStr}]:wrongLetterNum`,Guess.guesses[i].wrongLetterNum)
         }
     }
 
@@ -384,9 +388,13 @@ class Guess {
         introAnim = true
         let board = Board.getBoard()
         let k = 0
+        let infStr = ""
+        if (isInfinite){
+            infStr = "INF"
+        }
         for (let i = 0; i < size[1] ; i++){
-            let word = Cookies.getCookie(`guess[${i}]:word`)
-            let wrongLetterNum = Cookies.getInt(`guess[${i}]:wrongLetterNum`)
+            let word = Cookies.getCookie(`guess[${i}${infStr}]:word`)
+            let wrongLetterNum = Cookies.getInt(`guess[${i}${infStr}]:wrongLetterNum`)
             if (word == null || wrongLetterNum == null){ // Guess doesn't exist, leave loop
                 break
             }
@@ -402,9 +410,13 @@ class Guess {
     }
 
     static clearCookies(){
+        let infStr = ""
+        if (isInfinite){
+            infStr = "INF"
+        }
         for (let i = 0; i < Guess.guesses.length ; i++){
-            Cookies.clearCookie(`guess[${i}]:word`)
-            Cookies.clearCookie(`guess[${i}]:wrongLetterNum`)
+            Cookies.clearCookie(`guess[${i}${infStr}]:word`)
+            Cookies.clearCookie(`guess[${i}${infStr}]:wrongLetterNum`)
         }
     }
 
@@ -706,6 +718,10 @@ function loadCookies(){
         wordleNum = Cookies.getInt("wordleNum")
         isInfinite = Cookies.getBool("isInfinite")
         Guess.loadCookies()
+        if(wordleNum == null){
+            wordleNum = Cookies.getInt("INFwordleNum")
+            isInfinite = Cookies.getBool("INFisInfinite")
+        }
         if (wordleNum == null){
             console.log("LOADED DEFAULT")
             wordleNum = 0
@@ -719,10 +735,15 @@ function loadCookies(){
         }
     }else{
         console.log("LOADED FROM SITE")
-        wordleNum = sessionStorage.getItem("date");
-        Cookies.setCookie("wordleNum",sessionStorage.getItem("date"))
         isInfinite = sessionStorage.getItem("isInfinite") == "true";
-        Cookies.setCookie("isInfinite",sessionStorage.getItem("isInfinite") == "true")
+        let infstr = ""
+        if (isInfinite){
+            infstr = "INF"
+        }
+        Cookies.setCookie(`${infstr}isInfinite`,isInfinite)
+        wordleNum = sessionStorage.getItem("date");
+        Cookies.setCookie(`${infstr}wordleNum`,wordleNum)
+
     }
     console.log(`Wordle Number : ${wordleNum}`)
     console.log(`Is Infinite   : ${isInfinite}`)
