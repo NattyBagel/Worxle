@@ -714,12 +714,13 @@ class Cookies {
 }
 
 function loadCookies(){
-    wordleNum = Cookies.getInt("wordleNum")
-    isInfinite = Cookies.getBool("isInfinite")
-    if (wordleNum != null){
+    isInfinite = sessionStorage.getItem("isInfinite") == "true";
+    if (!isInfinite)
         console.log("LOADED FROM DAILY COOKIES")
+        wordleNum = Cookies.getInt("wordleNum")
+        isInfinite = Cookies.getBool("isInfinite")
     }
-    if(wordleNum == null){
+    if(wordleNum == null && isInfinite){
         console.log("LOADED FROM INFINITE COOKIES")
         wordleNum = Cookies.getInt("INFwordleNum")
         isInfinite = Cookies.getBool("INFisInfinite")
