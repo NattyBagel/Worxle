@@ -714,26 +714,17 @@ class Cookies {
 }
 
 function loadCookies(){
-    if (sessionStorage.getItem("date") == null){
-        wordleNum = Cookies.getInt("wordleNum")
-        isInfinite = Cookies.getBool("isInfinite")
-        Guess.loadCookies()
-        if(wordleNum == null){
-            wordleNum = Cookies.getInt("INFwordleNum")
-            isInfinite = Cookies.getBool("INFisInfinite")
-        }
-        if (wordleNum == null){
-            console.log("LOADED DEFAULT")
-            wordleNum = 0
-            Cookies.setCookie("wordleNum",0)
-        }else{
-            console.log("LOADED FROM COOKIES")
-        }
-        if (isInfinite == null){
-            isInfinite = false
-            Cookies.setCookie("isInfinite",false)
-        }
-    }else{
+    wordleNum = Cookies.getInt("wordleNum")
+    isInfinite = Cookies.getBool("isInfinite")
+    if (wordleNum != null){
+        console.log("LOADED FROM DAILY COOKIES")
+    }
+    if(wordleNum == null){
+        console.log("LOADED FROM INFINITE COOKIES")
+        wordleNum = Cookies.getInt("INFwordleNum")
+        isInfinite = Cookies.getBool("INFisInfinite")
+    }
+    if (wordleNum == null && sessionStorage.getItem('wordleNum')!= null){
         console.log("LOADED FROM SITE")
         isInfinite = sessionStorage.getItem("isInfinite") == "true";
         let infstr = ""
@@ -743,8 +734,17 @@ function loadCookies(){
         Cookies.setCookie(`${infstr}isInfinite`,isInfinite)
         wordleNum = sessionStorage.getItem("date");
         Cookies.setCookie(`${infstr}wordleNum`,wordleNum)
-
     }
+    if (wordleNum == null){
+        console.log("LOADED DEFAULT")
+        wordleNum = 0
+        Cookies.setCookie("wordleNum",0)
+    }
+    if (isInfinite == null){
+        isInfinite = false
+        Cookies.setCookie("isInfinite",false)
+    }
+    Guess.loadCookies()
     console.log(`Wordle Number : ${wordleNum}`)
     console.log(`Is Infinite   : ${isInfinite}`)
 }
