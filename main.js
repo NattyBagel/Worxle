@@ -721,7 +721,7 @@ function loadCookies(){
     if (isInfinite) offset = "INF"
     let cWordleNum = Number(Cookies.getInt(`[${offset}]wordleNum`))
     let cIsInfinite = Cookies.getBool(`[${offset}]isInfinite`)
-    if (cWordleNum != null || cIsInfinite != null){
+    if (cWordleNum != null && cIsInfinite != null){
         // Cookies Worked
         wordleNum = cWordleNum
         isInfinite = cIsInfinite

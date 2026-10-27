@@ -22,7 +22,7 @@ worxle.onclick = function(){
 
 infinite.onclick = function(){
     sessionStorage.setItem("isInfinite","true");
-    sessionStorage.setItem("date",null);
+    sessionStorage.setItem("date",0);
     window.location.href = "https://nattybagel.github.io/Worxle/worxle.html"
     //window.location.href = "worxle.html"
 }
