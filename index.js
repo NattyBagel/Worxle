@@ -6,12 +6,10 @@ let worxle = document.getElementById("worxle")
 let infinite = document.getElementById("infinite")
 
 next.onclick = function(){
-    console.log("+1")
-    setDate(1)
+    setDate(+1)
 }
 
 back.onclick = function(){
-    console.log("-1")
     setDate(-1)
 }
 
@@ -19,16 +17,19 @@ worxle.onclick = function(){
     sessionStorage.setItem("isInfinite","false");
     sessionStorage.setItem("date",""+num);
     window.location.href = "https://nattybagel.github.io/Worxle/worxle.html"
+    //window.location.href = "worxle.html"
 }
 
 infinite.onclick = function(){
     sessionStorage.setItem("isInfinite","true");
     sessionStorage.setItem("date","-1");
     window.location.href = "https://nattybagel.github.io/Worxle/worxle.html"
+    //window.location.href = "worxle.html"
 }
 
 function setDate(newNum){
     num = Math.min(num + newNum,0)
+    console.log(num)
     next.disabled = num >= 0
     if (num == 0){
         worxle.innerHTML = "Today's Worxle"

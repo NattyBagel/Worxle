@@ -715,7 +715,12 @@ class Cookies {
 
 function loadCookies(){
     isInfinite = sessionStorage.getItem("isInfinite") == "true";
+    wordleNum = Number(sessionStorage.getItem("date"))
     let offset = RNG.getOffset()
+    if (wordleNum != null){
+        offset += wordleNum
+        wordleNum = null // This worldeNum might be incorrect, so test others first.
+    }
     if (!isInfinite){
         console.log("LOADED FROM DAILY COOKIES")
         wordleNum = Cookies.getInt(`[${offset}]wordleNum`)
@@ -725,7 +730,6 @@ function loadCookies(){
         console.log("LOADED FROM INFINITE COOKIES")
         wordleNum = Cookies.getInt("INFwordleNum")
         isInfinite = Cookies.getBool("INFisInfinite")
-        
     }
     if (wordleNum == null && sessionStorage.getItem('date')!= null){
         console.log("LOADED FROM SITE")
@@ -737,7 +741,7 @@ function loadCookies(){
             infstr = ""+offset
         }
         Cookies.setCookie(`${infstr}isInfinite`,isInfinite)
-        wordleNum = sessionStorage.getItem("date");
+        wordleNum = Number(sessionStorage.getItem("date"));
         Cookies.setCookie(`${infstr}wordleNum`,wordleNum)
     }
     if (wordleNum == null){
@@ -746,6 +750,7 @@ function loadCookies(){
         Cookies.setCookie("wordleNum",0)
     }
     Guess.loadCookies()
+    console.log(typeof(wordleNum))
     console.log(`Wordle Number : ${wordleNum}`)
     console.log(`Is Infinite   : ${isInfinite}`)
 }
