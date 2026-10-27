@@ -717,7 +717,7 @@ function loadCookies(){
     // Load from Session First
     wordleNum = Number(sessionStorage.getItem("date"))
     isInfinite = sessionStorage.getItem("isInfinite") == "true"
-    let offset = RNG.getOffset() - wordleNum
+    let offset = RNG.getOffset() + wordleNum
     if (isInfinite) offset = "INF"
     let cWordleNum = Number(Cookies.getInt(`[${offset}]wordleNum`))
     let cIsInfinite = Cookies.getBool(`[${offset}]isInfinite`)
@@ -732,6 +732,8 @@ function loadCookies(){
             wordleNum = 0
             isInfinite = false
         }
+        Cookies.setCookie(`[${offset}]wordleNum`,wordleNum)
+        Cookies.setCookie(`[${offset}]isInfinite`,isInfinite)
     }
     
     // Save the Infinite Word here
