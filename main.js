@@ -374,7 +374,7 @@ class Guess {
     }
 
     static saveToCookies(){
-        let offset = RNG.getOffset()
+        let offset = RNG.getOffset() + wordleNum
         if (isInfinite){
             offset = "INF"
         }
@@ -388,7 +388,7 @@ class Guess {
         introAnim = true
         let board = Board.getBoard()
         let k = 0
-        let offset = RNG.getOffset()
+        let offset = RNG.getOffset() + wordleNum
         if (isInfinite){
             offset = "INF"
         }
@@ -741,7 +741,7 @@ function loadCookies(){
         let infWord = Cookies.getCookie("INFtrueWord")
         if (infWord == null){
             Guess.trueWord = wordleWordsList[Math.floor(Math.random()*wordleWordsList.length-1)]
-            Cookies.setCookie("INFtrueWord",infWord)
+            Cookies.setCookie("INFtrueWord",Guess.trueWord)
         }else{
             Guess.trueWord = infWord
         }
