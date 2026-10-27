@@ -412,14 +412,16 @@ class Guess {
     }
 
     static clearCookies(){
-        let infStr = ""
+        let offset = RNG.getOffset() + wordleNum
         if (isInfinite){
-            infStr = "INF"
+            offset = "INF"
+            Cookies.clearCookie(`INFtrueWord`)        
         }
         for (let i = 0; i < Guess.guesses.length ; i++){
-            Cookies.clearCookie(`guess[${i}${infStr}]:word`)
-            Cookies.clearCookie(`guess[${i}${infStr}]:wrongLetterNum`)
+            Cookies.clearCookie(`[${offset}]guess[${i}]:word`)        
         }
+        Cookies.clearCookie(`[${offset}]wordleNum`)
+        Cookies.clearCookie(`[${offset}]wrongLetterNum`)
     }
 
     getColor(letters,pos,trueLetters){
