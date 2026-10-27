@@ -109,6 +109,7 @@ class Board {
             cell.classList.remove(Guess.guesses[row].colors[cellNum])
             this.removeUnknownFromLine(row)
             this.updateAnyCell(cellNum,row,letter,"cellUnknown")
+            if (Keyboard.getKeyboard().letters[letter] == null) return
             Keyboard.getKeyboard().letters[letter].addState("cellUnknown")
             Keyboard.getKeyboard().letters[letter].removeState(Guess.guesses[row].colors[cellNum])
         }
@@ -623,6 +624,8 @@ function addTitle(){
     }
     */
 }
+
+
 
 function main(){
     addTitle()
