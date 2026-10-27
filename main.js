@@ -374,7 +374,7 @@ class Guess {
     }
 
     static saveToCookies(){
-        let offset = RND.getOffset()
+        let offset = RNG.getOffset()
         if (isInfinite){
             offset = "INF"
         }
@@ -388,7 +388,7 @@ class Guess {
         introAnim = true
         let board = Board.getBoard()
         let k = 0
-        let offset = RND.getOffset()
+        let offset = RNG.getOffset()
         if (isInfinite){
             offset = "INF"
         }
