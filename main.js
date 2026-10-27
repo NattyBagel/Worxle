@@ -374,13 +374,13 @@ class Guess {
     }
 
     static saveToCookies(){
-        let infStr = ""
+        let offset = RND.getOffset()
         if (isInfinite){
-            infStr = "INF"
+            offset = "INF"
         }
         for (let i = 0; i < Guess.guesses.length ; i++){
-            Cookies.setCookie(`guess[${i}${infStr}]:word`,Guess.guesses[i].word)
-            Cookies.setCookie(`guess[${i}${infStr}]:wrongLetterNum`,Guess.guesses[i].wrongLetterNum)
+            Cookies.setCookie(`[${offset}]guess[${i}]:word`,Guess.guesses[i].word)
+            Cookies.setCookie(`[${offset}]guess[${i}]:wrongLetterNum`,Guess.guesses[i].wrongLetterNum)
         }
     }
 
@@ -388,13 +388,13 @@ class Guess {
         introAnim = true
         let board = Board.getBoard()
         let k = 0
-        let infStr = ""
+        let offset = RND.getOffset()
         if (isInfinite){
-            infStr = "INF"
+            offset = "INF"
         }
         for (let i = 0; i < size[1] ; i++){
-            let word = Cookies.getCookie(`guess[${i}${infStr}]:word`)
-            let wrongLetterNum = Cookies.getInt(`guess[${i}${infStr}]:wrongLetterNum`)
+            let word = Cookies.getCookie(`[${offset}]guess[${i}]:word`)
+            let wrongLetterNum = Cookies.getInt(`[${offset}]guess[${i}]:wrongLetterNum`)
             if (word == null || wrongLetterNum == null){ // Guess doesn't exist, leave loop
                 break
             }
