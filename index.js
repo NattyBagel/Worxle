@@ -29,14 +29,20 @@ infinite.onclick = function(){
 
 function setDate(newNum){
     num = Math.min(num + newNum,0)
+
+    let completionStr = ""
+    let offset = RNG.getOffset() + num
+    if(Cookies.getCookie(`[${offset}]win`) == "true"){
+        completionStr = " (✔️)"
+    }
     console.log(num)
     next.disabled = num >= 0
     if (num == 0){
-        worxle.innerHTML = "Today's Worxle"
+        worxle.innerHTML = `Today's Worxle${completionStr}`
     }else if (num == -1){
-        worxle.innerHTML = "Yesterday's Worxle"
+        worxle.innerHTML = `Yesterday's Worxle${completionStr}`
     }else{
-        worxle.innerHTML = `${Math.abs(num)} Days Agos Worxle`
+        worxle.innerHTML = `${Math.abs(num)} Days Ago's Worxle${completionStr}`
     }
 }
 
@@ -80,3 +86,4 @@ class Title {
 
 let title = new Title()
 title.run()
+setDate(0)
