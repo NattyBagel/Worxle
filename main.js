@@ -714,43 +714,37 @@ class Cookies {
 }
 
 function loadCookies(){
-    isInfinite = sessionStorage.getItem("isInfinite") == "true";
+    // Load from Session First
     wordleNum = Number(sessionStorage.getItem("date"))
+    isInfinite = sessionStorage.getItem("isInfinite") == "true"
     let offset = RNG.getOffset()
-    if (wordleNum != null){
-        offset += wordleNum
-        wordleNum = null // This worldeNum might be incorrect, so test others first.
-    }
-    if (!isInfinite){
-        console.log("LOADED FROM DAILY COOKIES")
-        wordleNum = Cookies.getInt(`[${offset}]wordleNum`)
-        isInfinite = Cookies.getBool(`[${offset}]isInfinite`)
-    }
-    if(wordleNum == null && isInfinite){
-        console.log("LOADED FROM INFINITE COOKIES")
-        wordleNum = Cookies.getInt("INFwordleNum")
-        isInfinite = Cookies.getBool("INFisInfinite")
-    }
-    if (wordleNum == null && sessionStorage.getItem('date')!= null){
-        console.log("LOADED FROM SITE")
-        isInfinite = sessionStorage.getItem("isInfinite") == "true";
-        let infstr = ""
-        if (isInfinite){
-            infstr = "INF"
-        }else{
-            infstr = ""+offset
+    if (isInfinite) offset = "INF"
+    let cWordleNum = Number(Cookies.getInt(`[${offset}]wordleNum`))
+    let cIsInfinite = Cookies.getBool(`[${offset}]isInfinite`)
+    if (cWordleNum != null || cIsInfinite != null){
+        // Cookies Worked
+        wordleNum = cWordleNum
+        isInfinite = cIsInfinite
+    }else{
+        // No Cookies
+        if (wordleNum == null || isInfinite == null){
+            // Set default values
+            wordleNum = 0
+            isInfinite = false
         }
-        Cookies.setCookie(`${infstr}isInfinite`,isInfinite)
-        wordleNum = Number(sessionStorage.getItem("date"));
-        Cookies.setCookie(`${infstr}wordleNum`,wordleNum)
     }
-    if (wordleNum == null){
-        console.log("LOADED DEFAULT")
-        wordleNum = 0
-        Cookies.setCookie("wordleNum",0)
+    
+    // Save the Infinite Word here
+    if (isInfinite){
+        let infWord = Cookies.getCookie("INFtrueWord")
+        if (infWord == null){
+            Guess.trueWord = wordleWordsList[Math.floor(Math.random()*wordleWordsList.length-1)]
+            Cookies.setCookie("INFtrueWord",infWord)
+        }else{
+            Guess.trueWord = infWord
+        }
     }
     Guess.loadCookies()
-    console.log(typeof(wordleNum))
     console.log(`Wordle Number : ${wordleNum}`)
     console.log(`Is Infinite   : ${isInfinite}`)
 }
