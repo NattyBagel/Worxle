@@ -206,7 +206,7 @@ body {
 @media (max-width: 480px) {
 
     button.daySelect {
-        height: 6vh;
+        height: 10vw;
         width: 10vw;
         background: var(--colour-primary);
         border: unset;
@@ -225,7 +225,7 @@ body {
 
     button.gameSelect {
         background-color: var(--colour-primary);
-        height: 6vh;
+        height: max(6vh,10vw);
         width: 60vw;
         border-radius: 4vw;
         border-color: var(--colour-text);
@@ -277,11 +277,11 @@ body {
     }
 
     space.buttons {
-        height: 5vh;
+        height: 4vh;
     }
 
     space.rules {
-        height: 5vh;
+        height: 4vh;
     }
 
     space.board {
