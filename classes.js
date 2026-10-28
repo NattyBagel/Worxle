@@ -1,7 +1,7 @@
 class Cookies {
     static setCookie(cname, cvalue) {
         const d = new Date();
-        d.setDate(d.getDate() + 1);
+        d.setDate(d.getYear() + 10); // Cookies last for a long while
         d.setMinutes(0)
         d.setHours(0)
         d.setSeconds(0)

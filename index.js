@@ -33,7 +33,7 @@ function setDate(newNum){
     let completionStr = ""
     let offset = RNG.getOffset() + num
     if(Cookies.getCookie(`[${offset}]win`) == "true"){
-        completionStr = " (✔️)"
+        completionStr = " (✅)"
     }
     console.log(num)
     next.disabled = num >= 0
