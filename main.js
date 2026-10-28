@@ -527,7 +527,8 @@ class Guess {
                 //Guess.trueWord = "lauras" And Aurura
                 let wordleWordsListCopy = wordleWordsList.slice()
                 let usedWords = []
-                const rng = new RNG(1+(Math.floor(RNG.getOffset()+wordleNum)/(wordleWordsList.length-1)))
+                console.log(`RNG: ${1+(Math.floor((RNG.getOffset()+wordleNum)/(wordleWordsList.length-1)))}`)
+                const rng = new RNG(1+(Math.floor((RNG.getOffset()+wordleNum)/(wordleWordsList.length-1))))
                 let num = 0
                 for (let i = 0 ; i < (RNG.getOffset()+wordleNum)%(wordleWordsList.length-1) ; i++){
                     num = rng.nextInt(0,wordleWordsListCopy.length-1)
