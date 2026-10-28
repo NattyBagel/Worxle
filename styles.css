@@ -206,7 +206,7 @@ body {
 @media (max-width: 480px) {
 
     button.daySelect {
-        height: 10vw;
+        height: 6vh;
         width: 10vw;
         background: var(--colour-primary);
         border: unset;
