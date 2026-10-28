@@ -3,4 +3,6 @@ Worxle is a game I developped slowly on one of my other Repositories, [Pool Patc
 The goal of the game is to guess a word, simmilarly to NYT's Wordle, however the game gives you a single lie per guess. With only 8 guesses, can you guess the word?
 
 # Planned Features
-- Mobile GUI (In Development)
+The following list will come eventually, depending on how motivated I get
+- Tablet GUI (Vertical)
+- Graphs Displaying Number of Wins

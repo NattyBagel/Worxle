@@ -12,6 +12,7 @@
 
 body {
     background-color: var(--colour-primary);
+    overflow: hidden;
 }
 
 * {
@@ -22,17 +23,19 @@ body {
 
 /*Desktop Resolution*/
 @media (min-width: 481px) {
+
     button.daySelect {
-        height: 3em;
-        width: 3em;
+        height: 7vh;
+        width: 7vh;
         background: var(--colour-primary);
         border: unset;
         outline: var(--colour-text);
-        outline-width: 0.25em;
+        outline-width: 0.5vh;
         outline-style: solid;
-        border-radius: 0.7em;
-        margin-left: 1em;
-        margin-right: 1em;
+        border-radius: 2vh;
+        margin-left: 1vw;
+        margin-right: 1vw;
+        font-size: 3vh
     }
 
     button.daySelect:hover {
@@ -42,17 +45,19 @@ body {
 
     button.gameSelect {
         background-color: var(--colour-primary);
-        height: 3em;
-        width: 14em;
-        border-radius: 1em;
+        height: 10vh;
+        width: 40vw;
+        border-radius: 3vh;
         border-color: var(--colour-text);
         border-style: solid;
-        border-width: 0.2em;
+        border-width: 0.5vh;
         text-align: center;
         color: unset;
         text-decoration: unset;
-        margin: 0.3em;
-        font-size: 1.2em;
+        margin: 1vh;
+        margin-top:0.75vh;
+        margin-bottom:0.75vh;
+        font-size: 3.5vh;
     }
 
     button.gameSelect:hover {
@@ -63,6 +68,9 @@ body {
     div.center {
         display: grid;
         place-items: center;
+        align-content: center;
+        justify-content: center;
+        height: 100vh;
     }
 
     name {
@@ -73,45 +81,37 @@ body {
 
     text {
         text-align: center;
-        margin: 0.15em;
-        width: 80%;
-        font-size: 1.1em;
+        width: 90%;
+        font-size: 3vh;
+        margin: 1vh;
     }
 
     space {
-        height: 0.2em;
+        height: 0vh;
     }
 
     space.title {
-        height: 4em;
+        height: 6vh;
     }
 
     space.titleTop {
-        height: 4em;
+        height: 10vh;
     }
 
     space.buttons {
-        height: 0.2em;
+        height: 5vh;
     }
 
     space.rules {
-        height: 0.2em;
-    }
-
-    space.logo {
-        height: 0.8em;
-    }
-
-    space.prelogo {
-        height: 0.8em;
+        height: 5vh;
     }
 
     space.board {
-        height: 0.2em;
+        height: 0vh;
     }
 
     space.keyboard {
-        height: 0.2em;
+        height: 1vh;
     }
 
     wordlegrid.board {
@@ -120,42 +120,46 @@ body {
 
     wordlegrid.row {
         display: table-row;
-        font-size: 0px;
+        font-size: 0vw;
     }
 
     button.cell {
-        margin: 0.1em;
-        height: 1.9em;
-        width: 1.9em;
+        margin: 0.4vh;
+        height: 7.5vh;
+        width: 7.5vh;
         border-color: var(--colour-cells);
         border-style: solid;
-        border-width: 0.1em;
+        border-width: 0.5vh;
         display: inline-grid;
         background-color: var(--colour-primary);
         padding: unset;
         font-weight: bolder;
         appearance: none;
-        font-size: 18pt;
+        font-size: 5vh;
         align-content: center;
     }
 
     button.largeCell {
-        font-size: 30pt;
+        margin: 0.4vh;
+        height: 10vh;
+        width: 10vh;
+        font-size: 7vh;
     }
 
     button.key {
-        margin: 0.2em;
-        height: 2.3em;
-        width: 2.3em;
-        display: table-cell;
+        margin: 0.8vh;
+        height: 6vh;
+        width: 6vh;
+        display: inline-grid;
         background-color: var(--colour-cells-wrong);
         padding: unset;
         font-weight: bolder;
-        font-size: 14pt;
+        font-size: 4vh;
         outline: var(--colour-cells);
-        outline-width: 0.15em;
+        outline-width: 0.5vh;
         outline-style: solid;
         border: none;
+        align-content: center;
     }
 
     button.key:hover {
@@ -163,35 +167,36 @@ body {
         transition: 0.2s;
     }
 
-
     button.gradientOutline {
-        outline: var(--colour-cells-outline);
-        outline-width: 0.15em;
+        outline: var(--colour-cells);
         outline-style: solid;
+        outline-width: 0.5vh;
     }
 
     lettergrid.row {
         display: table-row;
-        font-size: 0px;
+        font-size: 0vw;
     }
 
     button.special {
-        width: 3.8em;
+        width: 9.5vh;
+        height: 6vh;
+        font-size: 3vh;
     }
 
     warning {
         position: absolute;
         align-self: baseline;
-        margin: 10px;
+        margin: 4vh;
         background-color: var(--colour-text);
         color: var(--colour-primary);
-        height: 2em;
-        padding-left: 0.5em;
-        padding-right: 0.5em;
+        height: 5vh;
+        padding-left: 2em;
+        padding-right: 2em;
         text-align: center;
         display: inline;
         align-content: center;
-        border-radius: 10px;
+        border-radius: 2em;
         transition: 0.5s;
     }
 }
